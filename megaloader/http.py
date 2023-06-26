@@ -30,9 +30,7 @@ def __build_headers(url: str, custom_headers: dict = None, as_list: bool = False
     return headers_list
 
 def http_download(url: str, output_folder: str, custom_headers: dict = None, headers_required = True):
-    url = unquote(url)
-    filename = url.split('/')[-1].split('?')[0]
-    filename = filename.replace("%20", ' ')
+    filename = unquote(url).split('/')[-1]
     output = os.path.join(output_folder, filename)
     if os.path.exists(output):
         return
