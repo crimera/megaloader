@@ -43,7 +43,7 @@ class GoFile:
         if "contents" in resources["data"].keys():
             contents = resources["data"]["contents"]
             for content in contents.values():
-                yield content["link"]
+                if "link" in content: yield content
 
     def download_file(self, url: str, output: str):
         http_download(url, output, custom_headers={
